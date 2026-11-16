@@ -150,4 +150,17 @@ describe("stepGame", () => {
     expect(result.isRandomPick).toBe(true);
     expect(result.topDishes).toHaveLength(3);
   });
+
+  it("computes matchRate monotonically with ranking order (1st >= 2nd >= 3rd)", () => {
+    const history: AnswerHistory[] = [
+      { questionId: "q_spicy", answer: 1.0 },
+      { questionId: "q_rice", answer: 1.0 },
+      { questionId: "q_chinese", answer: 1.0 },
+    ];
+    const result = stepGame(DISHES, QUESTIONS, history);
+    expect(result.topDishes[0].dish.id).toBe("mabo_tofu");
+    expect(result.topDishes[0].matchRate).toBeGreaterThanOrEqual(result.topDishes[1].matchRate);
+    expect(result.topDishes[1].matchRate).toBeGreaterThanOrEqual(result.topDishes[2].matchRate);
+    expect(result.topDishes[1].matchRate).toBeGreaterThan(50);
+  });
 });

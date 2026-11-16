@@ -7,6 +7,30 @@ export const MAX_QUESTIONS = 8;            // 最大質問数
 export const INDECISIVE_THRESHOLD = 0.08;  // 1位が8%以下なら「定まっていない」と判定
 
 /**
+ * 特性値 (-1.0〜1.0) と回答値 (-1.0〜1.0) の一致度 (0.0〜1.0) を計算する
+ */
+function calcMatchScore(trait: number, answer: number): number {
+  return 1.0 - Math.abs(trait - answer) / 2.0;
+}
+
+/**
+ * 回答履歴に対する料理の尤度積（幾何平均ベース）から一致度 (0〜100%) を計算する
+ * ベイズ推定の順位と単調一致するため、1位 >= 2位 >= 3位が必ず保たれる
+ */
+function calculateMatchRate(dish: Dish, history: AnswerHistory[]): number {
+  if (history.length === 0) return 0;
+  let score = 1.0;
+  for (const step of history) {
+    const trait = dish.traits[step.questionId] ?? 0.0;
+    const matchScore = calcMatchScore(trait, step.answer);
+    score *= 0.05 + matchScore * 0.9;
+  }
+  const geoMean = Math.pow(score, 1 / history.length);
+  const rate = ((geoMean - 0.05) / 0.9) * 100;
+  return Math.max(0, Math.min(100, Math.round(rate)));
+}
+
+/**
  * 1. ベイズ推定による事後確率の計算
  */
 export function calculateProbabilities(
@@ -24,7 +48,7 @@ export function calculateProbabilities(
   for (const step of history) {
     for (const dish of dishes) {
       const trait = dish.traits[step.questionId] ?? 0.0;
-      const matchScore = 1.0 - Math.abs(trait - step.answer) / 2.0;
+      const matchScore = calcMatchScore(trait, step.answer);
       const likelihood = 0.05 + matchScore * 0.9; // 0除算・復活不能を防ぐ下限値 0.05
       scores[dish.id] *= likelihood;
     }
@@ -116,7 +140,7 @@ export function stepGame(
       return {
         dish,
         probability: prob,
-        matchRate: Math.round(prob * 100),
+        matchRate: calculateMatchRate(dish, history),
       };
     })
     .sort((a, b) => b.probability - a.probability);

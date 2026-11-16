@@ -11,7 +11,7 @@ export const QUESTIONS: Question[] = [
   { id: "q_bread", text: "パンがいい？" },
   { id: "q_western", text: "洋風にする？" },
   { id: "q_fried", text: "揚げ物にする？" },
-  { id: "q_rice", text: "ご飯にする？" },
+  { id: "q_rice", text: "お米を食べたい？" },
   { id: "q_sweet", text: "少し甘みを感じる味付けがいい？" },
   { id: "q_calorie", text: "カロリーは気にする？（控えめにしたい？）" },
   { id: "q_vege", text: "野菜をしっかり摂りたい？" },
