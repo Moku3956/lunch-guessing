@@ -71,6 +71,16 @@ describe("selectNextQuestion", () => {
       pickedIds.add(second!.id);
       pickedIds.add(third!.id);
       expect(pickedIds.size).toBe(3);
+
+      // 2問目以降も上位3問からランダムに選ばれる
+      const laterPickedIds = new Set<string>();
+      randomSpy.mockReturnValue(0.0);
+      laterPickedIds.add(selectNextQuestion(QUESTIONS, DISHES, probs, ["q_rice"])!.id);
+      randomSpy.mockReturnValue(0.4);
+      laterPickedIds.add(selectNextQuestion(QUESTIONS, DISHES, probs, ["q_rice"])!.id);
+      randomSpy.mockReturnValue(0.99);
+      laterPickedIds.add(selectNextQuestion(QUESTIONS, DISHES, probs, ["q_rice"])!.id);
+      expect(laterPickedIds.size).toBe(3);
     } finally {
       randomSpy.mockRestore();
     }

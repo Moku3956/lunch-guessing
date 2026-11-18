@@ -66,7 +66,7 @@ export function calculateProbabilities(
 
 /**
  * 2. 候補群を最も2分できる質問の選択
- * ※ 1問目のみ評価値上位3問からランダム選出、2問目以降は最良の1問を選出
+ * ※ 全ターンで評価値上位3問からランダム選出
  */
 export function selectNextQuestion(
   questions: Question[],
@@ -99,15 +99,10 @@ export function selectNextQuestion(
   // 0.5 に近い順（ズレが小さい順）にソート
   evaluated.sort((a, b) => a.diffFromHalf - b.diffFromHalf);
 
-  // 初手（未回答時）は評価が高い上位3問からランダムに1問選ぶ
-  if (askedQuestionIds.length === 0) {
-    const topCandidates = evaluated.slice(0, Math.min(3, evaluated.length));
-    const randomIndex = Math.floor(Math.random() * topCandidates.length);
-    return topCandidates[randomIndex].question;
-  }
-
-  // 2問目以降は最も綺麗に2分できる1問を返す
-  return evaluated[0].question;
+  // 評価が高い上位3問からランダムに1問選ぶ
+  const topCandidates = evaluated.slice(0, Math.min(3, evaluated.length));
+  const randomIndex = Math.floor(Math.random() * topCandidates.length);
+  return topCandidates[randomIndex].question;
 }
 
 /**
