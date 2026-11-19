@@ -2,7 +2,7 @@
 
 ## プロジェクト概要
 
-質問に答えると、今日のごはんを提案する Web アプリです。はい、どちらでも、いいえの回答から料理ごとの一致度を計算し、上位 3 品を一致度 % 付きで表示します。
+質問に答えると、今日のごはんを提案する Web アプリです。5段階（はい、たぶんそう、どちらでも、たぶん違う、いいえ）の回答から料理ごとの一致度を計算し、上位 3 品を一致度 % 付きで表示します。
 
 要件は [docs/requirements.md](docs/requirements.md)、システム設計は [docs/system-design.md](docs/system-design.md)、UI 設計は [docs/ui-design.md](docs/ui-design.md) にあります。
 
