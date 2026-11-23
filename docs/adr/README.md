@@ -13,7 +13,10 @@
 
 | 番号 | タイトル | ステータス |
 |---|---|---|
-| [0001](0001-use-cloudflare-workers-and-d1.md) | 実行環境に Cloudflare Workers、DB に D1 を使う | 承認済み |
+| [0001](0001-use-cloudflare-workers-and-d1.md) | 実行環境に Cloudflare Workers、DB に D1 を使う | 廃止（0005 に置き換え） |
 | [0002](0002-use-mise-for-dev-environment.md) | 開発環境の統一に mise を使う | 承認済み |
 | [0003](0003-use-nextjs-typescript-react.md) | フロントエンドに Next.js、TypeScript、React を使う | 廃止（0004 に置き換え） |
-| [0004](0004-use-hono-and-react.md) | アプリを Hono、React、TypeScript で構成する | 承認済み |
+| [0004](0004-use-hono-and-react.md) | アプリを Hono、React、TypeScript で構成する | 廃止（0006 に置き換え） |
+| [0005](0005-use-vercel-and-turso.md) | 実行環境に Vercel、DB に Turso を使う | 承認済み |
+| [0006](0006-use-nextjs-react-typescript.md) | アプリを Next.js、React、TypeScript で構成する | 承認済み |
+| [0007](0007-train-models-in-typescript.md) | 機械学習をすべて TypeScript で行い、学習はローカルで実行する | 承認済み |

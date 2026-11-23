@@ -4,19 +4,24 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "play": "node src/engine/cli.ts"
   },
-  "dependencies": {
-    "hono": "^4.7.0"
-  },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250204.0",
-    "@types/node": "^26.6.6",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "typescript": "^5.7.0",
-    "vitest": "^3.0.0",
-    "wrangler": "^3.100.0"
+    "vitest": "^3.0.0"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.18.0",
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   }
 }

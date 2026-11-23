@@ -1,6 +1,6 @@
 # 0004: アプリを Hono、React、TypeScript で構成する
 
-- ステータス: 承認済み
+- ステータス: 廃止（[0006](0006-use-nextjs-react-typescript.md) に置き換え）
 - 日付: 2026-11-05
 
 ## 背景
