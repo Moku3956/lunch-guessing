@@ -1,6 +1,13 @@
 node_modules/
 dist/
-.wrangler/
-.dev.vars
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.vercel/
+.env*.local
+*.db
+*.db-shm
+*.db-wal
 *.log
 .DS_Store
