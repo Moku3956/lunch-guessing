@@ -15,6 +15,8 @@
 
 ## コマンド
 
+開発環境のセットアップ手順は [README.md](README.md) にあります。
+
 Node と pnpm のバージョンは `mise.toml` で揃えます（Node 22、pnpm 12）。依存関係は `pnpm install` で入れます。`npm install` は使わないでください。`package-lock.json` が作られ、lock ファイルが 2 つになります。
 
 | コマンド | 内容 |
