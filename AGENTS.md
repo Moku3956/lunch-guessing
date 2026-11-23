@@ -15,16 +15,16 @@
 
 ## コマンド
 
-Node のバージョンは `mise.toml` で揃えます（Node 22）。依存関係は `npm install` で入れます。
+Node と pnpm のバージョンは `mise.toml` で揃えます（Node 22、pnpm 12）。依存関係は `pnpm install` で入れます。`npm install` は使わないでください。`package-lock.json` が作られ、lock ファイルが 2 つになります。
 
 | コマンド | 内容 |
 |---|---|
-| `npm run dev` | 開発サーバーを起動 |
-| `npm run build` | 本番用にビルド |
-| `npm run start` | ビルドしたアプリを起動 |
-| `npm run typecheck` | 型チェック |
-| `npm test` | テストを実行（Vitest） |
-| `npm run play` | 推定エンジンをターミナルで試す |
+| `pnpm dev` | 開発サーバーを起動 |
+| `pnpm build` | 本番用にビルド |
+| `pnpm start` | ビルドしたアプリを起動 |
+| `pnpm typecheck` | 型チェック |
+| `pnpm test` | テストを実行（Vitest） |
+| `pnpm play` | 推定エンジンをターミナルで試す |
 
 ここにないコマンドは推測しないでください。追加したら、この表も更新してください。
 
