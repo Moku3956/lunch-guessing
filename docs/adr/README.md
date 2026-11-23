@@ -20,3 +20,4 @@
 | [0005](0005-use-vercel-and-turso.md) | 実行環境に Vercel、DB に Turso を使う | 承認済み |
 | [0006](0006-use-nextjs-react-typescript.md) | アプリを Next.js、React、TypeScript で構成する | 承認済み |
 | [0007](0007-train-models-in-typescript.md) | 機械学習をすべて TypeScript で行い、学習はローカルで実行する | 承認済み |
+| [0008](0008-use-pnpm.md) | パッケージマネージャーに pnpm を使う | 承認済み |
