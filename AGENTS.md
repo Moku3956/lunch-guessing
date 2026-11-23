@@ -11,7 +11,7 @@
 ## 現状
 
 - 実装前の段階で、リポジトリにコード、依存関係、テスト、CI はありません。
-- 技術スタックは、実行環境が Cloudflare Workers、DB が Cloudflare D1、API が Hono、画面が React（Vite）、言語が TypeScript、開発環境の統一が mise です。ORM など、その他は未確定です。
+- 技術スタックは、実行環境が Vercel、DB が Turso、画面と API が Next.js（React）、言語が TypeScript、機械学習も TypeScript（学習はローカル）、開発環境の統一が mise です。ORM など、その他は未確定です。
 - ビルドやテストのコマンドは推測しないでください。スタックが決まったら、このファイルに追記してください。
 
 ## 進め方
